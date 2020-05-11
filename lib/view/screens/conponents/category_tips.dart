@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newfeedapp/view/screens/conponents/category_info.dart';
+import 'package:newfeedapp/view/screens/data/category_info.dart';
 
 class CategoryTips extends StatefulWidget {
   final ValueChanged onCategoryChanged;

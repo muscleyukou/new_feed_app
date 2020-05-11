@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:newfeedapp/view/screens/conponents/category_info.dart';
+import 'package:newfeedapp/view/screens/data/category_info.dart';
 import 'package:newfeedapp/view/screens/conponents/category_tips.dart';
 import 'package:newfeedapp/view/screens/conponents/search_bar.dart';
+import 'package:newfeedapp/view/screens/data/search_type.dart';
+import 'package:newfeedapp/viewmodels/news_list_view.dart';
+import 'package:provider/provider.dart';
 
 class NewsListPage extends StatelessWidget {
   @override
@@ -17,9 +20,11 @@ class NewsListPage extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: <Widget>[
-           SearchBar(onSearch:(keyword)=>getKeyWordNews(context,keyword)),
+              SearchBar(
+                  onSearch: (keyword) => getKeyWordNews(context, keyword)),
               CategoryTips(
-                onCategoryChanged: (category)=>_getCategory(context,category),
+                onCategoryChanged: (category) =>
+                    _getCategory(context, category),
               ), //todo検索ワードカテゴリー作成
               //todo 記事表示
               Expanded(child: Center(child: CircularProgressIndicator(
@@ -33,16 +38,22 @@ class NewsListPage extends StatelessWidget {
 
 //todo
   onRefresh(BuildContext context) {
-    print('onRefresh');
+    final viewModel=Provider.of<NewsListViewModel>(context,listen: false);
+    viewModel.getNews(searchType:viewModel.searchType,keyword: viewModel.keyword,category: viewModel.category);
   }
 
-  _getCategory(BuildContext context,Category category) {
-    print('getCategory');
+  _getCategory(BuildContext context, Category category) {
+    final viewModel = Provider.of<NewsListViewModel>(context, listen: false);
+    viewModel.getNews(searchType: SearchType.CATEGORY, category: category,);
   }
+
 //todo キーワード記事取得処理
   getKeyWordNews(BuildContext context, keyword) {
-    print('キーワード取得完了');
+    final viewModel = Provider.of<NewsListViewModel>(context, listen: false);
+    viewModel.getNews(searchType: SearchType.KEYWORD,
+        keyword: keyword,
+        category: categories[0]);
   }
 
-  
+
 }
