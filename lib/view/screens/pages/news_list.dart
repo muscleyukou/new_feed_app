@@ -37,20 +37,20 @@ class NewsListPage extends StatelessWidget {
   }
 
 //todo
-  onRefresh(BuildContext context) {
+ Future<void> onRefresh(BuildContext context) async{
     final viewModel=Provider.of<NewsListViewModel>(context,listen: false);
-    viewModel.getNews(searchType:viewModel.searchType,keyword: viewModel.keyword,category: viewModel.category);
+   await viewModel.getNews(searchType:viewModel.searchType,keyword: viewModel.keyword,category: viewModel.category);
   }
-
-  _getCategory(BuildContext context, Category category) {
+//todo カテゴリー
+  Future<void>  _getCategory(BuildContext context, Category category)async {
     final viewModel = Provider.of<NewsListViewModel>(context, listen: false);
-    viewModel.getNews(searchType: SearchType.CATEGORY, category: category,);
+  await  viewModel.getNews(searchType: SearchType.CATEGORY, category: category,);
   }
 
 //todo キーワード記事取得処理
-  getKeyWordNews(BuildContext context, keyword) {
+ Future<void> getKeyWordNews(BuildContext context, keyword) async{
     final viewModel = Provider.of<NewsListViewModel>(context, listen: false);
-    viewModel.getNews(searchType: SearchType.KEYWORD,
+  await  viewModel.getNews(searchType: SearchType.KEYWORD,
         keyword: keyword,
         category: categories[0]);
   }
