@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:newfeedapp/view/screens/data/category_info.dart';
-import 'package:newfeedapp/view/screens/data/search_type.dart';
+import 'package:newfeedapp/view/data/category_info.dart';
+import 'package:newfeedapp/view/data/search_type.dart';
 
 class NewsRepository{
  Future<void> getNews({@required SearchType searchType,String keyword,Category category})async{

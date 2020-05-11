@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newfeedapp/view/screens/home_screen.dart';
-import 'package:newfeedapp/view/screens/style/style.dart';
+import 'package:newfeedapp/view/style/style.dart';
 import 'package:newfeedapp/viewmodels/news_list_view.dart';
 import 'package:provider/provider.dart';
 
