@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newfeedapp/repository/news_repository.dart';
+import 'package:newfeedapp/models/repository/news_repository.dart';
 import 'package:newfeedapp/view/screens/data/category_info.dart';
 import 'package:newfeedapp/view/screens/data/search_type.dart';
 
