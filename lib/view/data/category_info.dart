@@ -15,5 +15,5 @@ final List<Category>categories=[
   Category(categoryId: 3,categoryEn: 'technology',categoryJp: 'テクノロジー'),
   Category(categoryId: 4,categoryEn: 'health',categoryJp: '健康'),
   Category(categoryId: 5,categoryEn: 'sports',categoryJp: 'スポーツ'),
-  Category(categoryId: 6,categoryEn: 'entertaiment',categoryJp: 'エンタメ'),
+  Category(categoryId: 6,categoryEn: 'entertainment',categoryJp: 'エンタメ'),
 ];

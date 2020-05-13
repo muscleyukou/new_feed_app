@@ -31,12 +31,11 @@ List<Article> get articles=>_articles;
     _category = category;
     _isLoading = true;
     notifyListeners();
-    //todo
-    print('viewmodel:searchType:$_searchType/keyword:$_keyword/category:$_category:${_articles[0].title}');
       _articles= await _repository.getNews(
         searchType: _searchType,
         keyword: _keyword,
         category: _category);
+    print('viewmodel:searchType:$_searchType/keyword:$_keyword/category:$_category:${_articles[0].title}');
         _isLoading=false;
        notifyListeners();
 
