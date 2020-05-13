@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newfeedapp/models/model/news_model.dart';
 import 'package:newfeedapp/models/repository/news_repository.dart';
 import 'package:newfeedapp/view/data/category_info.dart';
 import 'package:newfeedapp/view/data/search_type.dart';
@@ -11,16 +12,16 @@ class NewsListViewModel extends ChangeNotifier {
   SearchType get searchType => _searchType;
 
   Category _category = categories[0];
-
   Category get category => _category;
 
   String _keyword = "";
-
   String get keyword => _keyword;
 
   bool _isLoading = false;
-
   bool get isLoading => _isLoading;
+
+List<Article>_articles=List();
+List<Article> get articles=>_articles;
 
 
  Future<void> getNews ({
@@ -31,14 +32,19 @@ class NewsListViewModel extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     //todo
-    print('viewmodel:searchType:$searchType/keyword:$keyword/category:${category.categoryJp}');
-   await _repository.getNews(
+    print('viewmodel:searchType:$_searchType/keyword:$_keyword/category:$_category:${_articles[0].title}');
+      _articles= await _repository.getNews(
         searchType: _searchType,
         keyword: _keyword,
         category: _category);
-    _isLoading=false;
-    notifyListeners();
+        _isLoading=false;
+       notifyListeners();
 
+  }
+  @override
+  void dispose() {
+    _repository.dispose();
+    super.dispose();
   }
 
 }
