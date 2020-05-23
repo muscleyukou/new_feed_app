@@ -5,6 +5,7 @@ import 'package:newfeedapp/view/data/category_info.dart';
 import 'package:newfeedapp/view/conponents/category_tips.dart';
 import 'package:newfeedapp/view/conponents/search_bar.dart';
 import 'package:newfeedapp/view/data/search_type.dart';
+import 'package:newfeedapp/view/screens/news_webpage_screen.dart';
 import 'package:newfeedapp/viewmodels/news_list_view.dart';
 import 'package:provider/provider.dart';
 
@@ -86,5 +87,7 @@ class NewsListPage extends StatelessWidget {
 
   _openArticleWebPage(Article article, BuildContext context) {
     print('${article.url}');
+      print('headline${article.url}');
+      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NewsWebPageScreen(article: article)));
   }
 }

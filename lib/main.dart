@@ -1,6 +1,6 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:newfeedapp/di/providers.dart';
+import 'package:newfeedapp/models/db/db.dart';
 import 'package:newfeedapp/view/screens/home_screen.dart';
 import 'package:newfeedapp/view/style/style.dart';
 import 'package:newfeedapp/viewmodels/head_line_viewmodel.dart';
@@ -9,11 +9,11 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    MultiProvider(providers: [
-      ChangeNotifierProvider(create: (context)=>NewsListViewModel(),),
-      ChangeNotifierProvider(create: (context)=>HeadLineViewModel(),),
-    ],
-    child: MyApp(),),
+    MultiProvider(
+
+      providers:globalProviders,
+      child: MyApp(),
+    ),
   );
 }
 
